@@ -60,11 +60,13 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="hero" id="home">
         <div className="hero-bg">
-          {/* TODO: Replace src with your actual hero image */}
-          <img
-            src="https://placehold.co/1920x1080/3E4D28/D4C5A3?text=Handcrafted+Since+Generations"
-            alt="Deen Dayal Rugs Exports hero"
-          />
+          {/*
+            TODO: Replace with your actual hero image.
+            Use a portrait/square crop for mobile (e.g. 800x1000px)
+            and a landscape for desktop (e.g. 1920x1080px).
+            For now using a CSS background so it scales correctly on all screens.
+          */}
+          <div className="hero-bg-fill" />
           <div className="hero-overlay" />
         </div>
 

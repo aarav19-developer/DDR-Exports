@@ -362,12 +362,60 @@ button {
   inset: 0;
 }
 
+/* CSS background fill — used until real hero image is added */
+/* To use a real image, replace .hero-bg-fill with:
+   <img src="/your-hero-image.jpg" alt="..." style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center'}} />
+*/
+.hero-bg-fill {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(135deg,
+      #2A3518 0%,
+      #3E4D28 30%,
+      #5C6B3A 55%,
+      #4A3F30 80%,
+      #2A1F10 100%
+    );
+  position: relative;
+}
+
+/* Subtle texture pattern overlay */
+.hero-bg-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.015) 8px,
+      rgba(255,255,255,0.015) 9px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.015) 8px,
+      rgba(255,255,255,0.015) 9px
+    );
+}
+
 .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.05);
-  animation: heroZoom 10s ease-out forwards;
+  object-position: center center;
+  /* No zoom animation — keeps full image visible on mobile */
+}
+
+/* Only apply zoom on desktop where there's enough width */
+@media (min-width: 769px) {
+  .hero-bg img {
+    transform: scale(1.05);
+    animation: heroZoom 10s ease-out forwards;
+  }
 }
 
 @keyframes heroZoom {
