@@ -347,8 +347,10 @@ button {
 ============================================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 650px;
+  /* 100svh = small viewport height — excludes mobile browser chrome/address bar */
+  height: 100svh;
+  height: 100vh; /* fallback for older browsers */
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -388,7 +390,8 @@ button {
   z-index: 2;
   text-align: center;
   max-width: 800px;
-  padding: 0 2rem;
+  padding: 100px 2rem 60px; /* top padding clears fixed navbar on all screen sizes */
+  width: 100%;
 }
 
 .hero-eyebrow {
@@ -404,7 +407,7 @@ button {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.6rem, 8vw, 6rem);
   font-weight: 600;
   line-height: 1.05;
   color: var(--cream);
@@ -421,7 +424,7 @@ button {
 
 .hero-tagline {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-style: italic;
   font-weight: 300;
   color: rgba(255,255,255,0.75);
@@ -475,6 +478,81 @@ button {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE HERO FIXES ── */
+@media (max-width: 768px) {
+  .hero {
+    /* Use dvh (dynamic viewport height) for modern mobile browsers */
+    height: 100dvh;
+    min-height: 580px;
+    align-items: center;
+  }
+
+  .hero-content {
+    padding: 90px 1.5rem 60px;
+  }
+
+  .hero-bg img {
+    /* Disable zoom animation on mobile — prevents overflow/clipping */
+    animation: none;
+    transform: scale(1);
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+  }
+
+  .hero-desc {
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .hero-scroll-hint {
+    display: none; /* hide on mobile — takes up space */
+  }
+
+  /* Ensure animations still work even if delayed on mobile */
+  .hero-eyebrow,
+  .hero-title,
+  .hero-tagline,
+  .hero-desc,
+  .hero-btns {
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 80px 1.25rem 50px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 9vw, 2.6rem);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
 }
 
 /* ============================================================
