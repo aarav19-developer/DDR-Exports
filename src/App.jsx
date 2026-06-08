@@ -1,11 +1,11 @@
 import { useEffect, Suspense, lazy } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
-import Navbar           from './components/Navbar'
-import Footer           from './components/Footer'
-import FloatingWhatsApp from './components/FloatingWhatsApp'
-import BackToTop        from './components/BackToTop'
-import PageLoader       from './components/PageLoader'
+import Navbar           from './Components/Navbar'
+import Footer           from './Components/Footer'
+import FloatingWhatsApp from './Components/FloatingWhatsApp'
+import BackToTop        from './Components/BackToTop'
+import PageLoader       from './Components/PageLoader'
 
 // Lazy-load every page — only loads what the user visits
 const Home        = lazy(() => import('./pages/Home'))
