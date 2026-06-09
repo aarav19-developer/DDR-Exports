@@ -57,12 +57,16 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-container">
 
-        {/* Logo */}
+        {/* Logo — full logo image (icon + text "DEEN DAYAL RUGS EXPORT") */}
         <Link to="/" className="nav-logo" onClick={close}>
-          <img src="/logo-icon.svg" alt="Deen Dayal Rugs Exports logo" className="logo-icon" width="44" height="44" />
-          <div className="logo-text-wrap">
-            <span className="logo-main">Deen Dayal</span>
-            <span className="logo-sub">Rugs Exports</span>
+          <div className="nav-logo-bg">
+            <img
+              src="/logo-full.png"
+              alt="Deen Dayal Rugs Exports — Handmade Carpet Exporter from Meerut India"
+              className="logo-full-img"
+              width="160"
+              height="60"
+            />
           </div>
         </Link>
 
