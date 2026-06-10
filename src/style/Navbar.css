@@ -30,52 +30,77 @@
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-/* Background wrapper — adapts to navbar state */
-.nav-logo-bg {
+/* Image wrapper — cream pill on dark navbar, transparent when scrolled */
+.nav-logo-img-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* On dark/transparent navbar: semi-transparent cream pill so black logo is visible */
-  background: rgba(250, 246, 239, 0.92);
+  background: rgba(250, 246, 239, 0.90);
   border-radius: 8px;
-  padding: 5px 10px;
-  transition: background 0.35s ease, box-shadow 0.35s ease;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: background 0.35s ease;
 }
 
-/* When scrolled (light cream navbar): transparent — logo blends naturally */
-.navbar.scrolled .nav-logo-bg {
-  background: rgba(250, 246, 239, 0);
-  padding: 4px 8px;
+.navbar.scrolled .nav-logo-img-wrap {
+  background: transparent;
 }
 
-.logo-full-img {
-  height: 48px;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
+/* The logo image — show just the icon portion, cropped square */
+.logo-img-only {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  object-position: center top; /* show the icon part, not the text in the image */
   display: block;
+  border-radius: 4px;
 }
 
-@media (max-width: 768px) {
-  .logo-full-img {
-    height: 38px;
-    max-width: 130px;
-  }
+/* Brand text next to logo */
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
 
-  .nav-logo-bg {
-    padding: 4px 8px;
-  }
+.logo-main {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  transition: color 0.35s ease;
+}
+
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.35s ease;
+}
+
+.navbar.scrolled .logo-main { color: var(--olive-dark); }
+.navbar.scrolled .logo-sub  { color: var(--text-light); }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .nav-logo { gap: 8px; }
+  .logo-img-only { width: 36px; height: 36px; }
+  .logo-main { font-size: 1.15rem; }
+  .logo-sub  { font-size: 0.55rem; }
 }
 
 @media (max-width: 400px) {
-  .logo-full-img {
-    height: 32px;
-    max-width: 110px;
-  }
+  .logo-img-only { width: 32px; height: 32px; }
+  .logo-main { font-size: 1rem; }
 }
 
 .logo-main {

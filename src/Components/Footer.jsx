@@ -40,15 +40,19 @@ export default function Footer() {
             {/* Brand */}
             <div className="footer-brand">
               <div className="footer-logo">
-                <div className="footer-logo-bg">
+                <div className="footer-logo-img-wrap">
                   <img
                     src="/logo.jpeg"
-                    alt="Deen Dayal Rugs Exports — Handmade Carpet Exporter from Meerut India"
-                    className="footer-logo-full-img"
-                    width="160"
-                    height="60"
+                    alt="Deen Dayal Rugs Exports logo"
+                    className="footer-logo-img-only"
+                    width="48"
+                    height="48"
                     loading="lazy"
                   />
+                </div>
+                <div className="footer-logo-text">
+                  <span className="logo-main">Deen Dayal</span>
+                  <span className="logo-sub">Rugs Exports</span>
                 </div>
               </div>
               <p>Preserving the art of Indian handmade crafts — crafted with soul, exported with pride from Meerut, India.</p>
