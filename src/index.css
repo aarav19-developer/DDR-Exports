@@ -2976,7 +2976,7 @@ main {
 
 /* Inner pages — push below navbar */
 .page-hero + * {
-  /* nothing extra needed — page-hero handles the navbar offset */
+  /* page-hero handles the navbar offset */
 }
 
 /* All sections — no horizontal overflow */
@@ -3400,7 +3400,4 @@ section {
   }
 }
 
-/* ── font-display: swap for all font-face ── */
-@font-face {
-  font-display: swap;
-}
+/* ── font-display: swap applied via Google Fonts URL ── */

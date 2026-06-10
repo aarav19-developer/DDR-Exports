@@ -42,7 +42,7 @@ export default function Footer() {
               <div className="footer-logo">
                 <div className="footer-logo-bg">
                   <img
-                    src="/logo-full.png"
+                    src="/logo.jpeg"
                     alt="Deen Dayal Rugs Exports — Handmade Carpet Exporter from Meerut India"
                     className="footer-logo-full-img"
                     width="160"
