@@ -35,25 +35,25 @@
   flex-shrink: 0;
 }
 
-/* Image wrapper — matches navbar background at each state */
+/* Image wrapper — background matches navbar exactly, no separate box visible */
 .nav-logo-img-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Dark navbar state: olive background */
-  background: var(--olive-dark);
-  border-radius: 8px;
-  padding: 5px;
+  /* Dark/transparent navbar: same as navbar = transparent */
+  background: transparent;
+  border-radius: 6px;
+  padding: 3px;
   flex-shrink: 0;
   transition: background 0.35s ease;
 }
 
-/* Scrolled state: white/cream background matching the navbar */
+/* Scrolled: white cream bg — same as navbar scrolled background */
 .navbar.scrolled .nav-logo-img-wrap {
   background: rgba(250, 246, 239, 0.97);
 }
 
-/* The logo image */
+/* Logo image */
 .logo-img-only {
   width: 44px;
   height: 44px;
@@ -61,13 +61,14 @@
   object-position: center top;
   display: block;
   border-radius: 4px;
-  /* Dark navbar: invert black lines to cream so they're visible on olive bg */
-  filter: invert(1) sepia(0.1) saturate(0.5) brightness(1.1);
-  transition: filter 0.35s ease;
+  /* Dark navbar: image has white/light bg — blend it away with mix-blend-mode */
+  mix-blend-mode: screen;
+  transition: mix-blend-mode 0.35s ease, filter 0.35s ease;
 }
 
-/* Scrolled: restore original dark lines, visible on white bg */
+/* Scrolled: restore normal rendering on white/cream background */
 .navbar.scrolled .logo-img-only {
+  mix-blend-mode: normal;
   filter: none;
 }
 

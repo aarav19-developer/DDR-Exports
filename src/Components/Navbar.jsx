@@ -59,17 +59,15 @@ export default function Navbar() {
 
         {/* Logo — icon image + brand text */}
         <Link to="/" className="nav-logo" onClick={close}>
-          {/* Logo icon image with theme-aware background */}
           <div className="nav-logo-img-wrap">
             <img
-              src="/logo.jpeg"
+              src="/logo1.jpeg"
               alt="Deen Dayal Rugs Exports logo"
               className="logo-img-only"
               width="48"
               height="48"
             />
           </div>
-          {/* Brand text — always visible alongside logo */}
           <div className="logo-text-wrap">
             <span className="logo-main">Deen Dayal</span>
             <span className="logo-sub">Rugs Exports</span>
