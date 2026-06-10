@@ -35,30 +35,39 @@
   flex-shrink: 0;
 }
 
-/* Image wrapper — cream pill on dark navbar, transparent when scrolled */
+/* Image wrapper — transparent on dark navbar, slight bg when scrolled */
 .nav-logo-img-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(250, 246, 239, 0.90);
+  background: transparent;
   border-radius: 8px;
-  padding: 4px;
+  padding: 3px;
   flex-shrink: 0;
   transition: background 0.35s ease;
 }
 
+/* When scrolled (light cream navbar) — slight cream tint blends naturally */
 .navbar.scrolled .nav-logo-img-wrap {
-  background: transparent;
+  background: rgba(250, 246, 239, 0.5);
 }
 
-/* The logo image — show just the icon portion, cropped square */
+/* The logo image — show icon portion */
 .logo-img-only {
   width: 44px;
   height: 44px;
   object-fit: cover;
-  object-position: center top; /* show the icon part, not the text in the image */
+  object-position: center top;
   display: block;
   border-radius: 4px;
+  /* On dark navbar: invert so white bg becomes dark, black lines become white/cream */
+  filter: invert(1) sepia(0.1) saturate(0.5) brightness(1.1);
+  transition: filter 0.35s ease;
+}
+
+/* When scrolled (light bg): restore original natural colors */
+.navbar.scrolled .logo-img-only {
+  filter: none;
 }
 
 /* Brand text next to logo */
